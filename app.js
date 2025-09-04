@@ -27,10 +27,8 @@ numbersContainer.addEventListener("click", (event) => {
     numbers.firstNumber = clickedButton;
   } else if (numbers.operator === null) {
     numbers.operator = clickedButton;
-  } else if (!isNaN(clickedButton)) {
+  } else if (numbers.secondNumber === null) {
     numbers.secondNumber = clickedButton;
-    //in the above code , if we do not check for the !isNaN condition, then the
-    //secondNumber property gets overridden to the value of '=' when the user presses =
   }
 
   if (numbers.secondNumber && clickedButton === "=") {
@@ -57,4 +55,12 @@ numbersContainer.addEventListener("click", (event) => {
         );
     }
   }
+});
+
+//adding event listener to the clear button
+resetButton.addEventListener("click", () => {
+  resultScreen.innerHTML = "";
+  numbers.firstNumber = null;
+  numbers.secondNumber = null;
+  numbers.operator = null;
 });
