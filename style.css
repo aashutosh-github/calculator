@@ -59,11 +59,26 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
-  top: -2rem;
   width: 80%;
   left: 10%;
   justify-items: center;
   column-gap: 0;
   height: 50%;
   gap: 5px;
+}
+
+.resetButton {
+  height: 2rem;
+  width: 80%;
+  background-color: #a5a5a5f5;
+  color: rgb(85, 85, 85);
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 10%;
+  top: -1rem;
+  border-radius: 25px;
 }
