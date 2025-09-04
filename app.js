@@ -10,32 +10,39 @@ const divide = (a, b) => a / b;
 //initialising the initial state of the
 //calculator
 let numbers = {
-  firstNumber: null,
-  operator: null,
-  secondNumber: null,
+  firstNumber: 0,
+  operator: 0,
+  secondNumber: 0,
 };
+
+let sNum = parseFloat(numbers.secondNumber);
+let fNum = parseFloat(numbers.firstNumber);
 
 //adding event listener to all the buttons
 //using event delegation
 numbersContainer.addEventListener("click", (event) => {
   let clickedButton = event.target.innerHTML;
-  if (numbers.firstNumber === null && clickedButton === "=") {
-    alert(`Please enter some numbers and operators first!`);
+  if (numbers.firstNumber === 0 && isNaN(clickedButton)) {
+    alert(`Please enter some numbers first!`);
   }
 
-  if (numbers.firstNumber === null) {
-    numbers.firstNumber = clickedButton;
-  } else if (numbers.operator === null) {
+  if (!isNaN(clickedButton) && numbers.operator === 0) {
+    fNum = fNum * 10 + parseFloat(clickedButton);
+    numbers.firstNumber = fNum;
+  } else if (numbers.operator === 0) {
     numbers.operator = clickedButton;
-  } else if (numbers.secondNumber === null) {
-    numbers.secondNumber = clickedButton;
+  } else if (!isNaN(clickedButton)) {
+    sNum = sNum * 10 + parseFloat(clickedButton);
+    numbers.secondNumber = sNum;
+  } else if (numbers.secondNumber && clickedButton === "=") {
+    checkResult(clickedButton);
   }
+});
 
+function checkResult(clickedButton) {
   if (numbers.secondNumber && clickedButton === "=") {
     let sNum = parseFloat(numbers.secondNumber);
     let fNum = parseFloat(numbers.firstNumber);
-    console.log([fNum, sNum]);
-    let result;
     switch (numbers.operator) {
       case "+":
         resultScreen.innerHTML = add(fNum, sNum);
@@ -55,12 +62,13 @@ numbersContainer.addEventListener("click", (event) => {
         );
     }
   }
-});
+}
 
 //adding event listener to the clear button
 resetButton.addEventListener("click", () => {
   resultScreen.innerHTML = "";
-  numbers.firstNumber = null;
-  numbers.secondNumber = null;
-  numbers.operator = null;
+  for (let key in numbers) {
+    numbers[key] = 0;
+  }
+  [sNum, fNum] = [0, 0];
 });
