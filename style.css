@@ -20,37 +20,46 @@ body {
   flex-direction: column;
   justify-content: space-around;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #cfcfcf;
   height: 35rem;
   width: 25rem;
   border-radius: 25px;
+  box-shadow: -3px -3px 10px rgb(80, 80, 80) inset;
 }
 
 .displayScreen {
-  background-color: #0d0c0c;
+  background-color: #a5a5a5f5;
   position: relative;
   left: 9.5%;
   border-radius: 25px;
   height: 15%;
   width: 80%;
+  box-shadow: 2px 2px 5px #1a1a1a;
 }
 
 .numberButton {
-  border: 1px solid red;
+  border: 1px solid black;
+  border-radius: 25px;
   aspect-ratio: 1;
   height: 60px;
   display: flex;
   justify-content: center;
+  cursor: pointer;
   align-items: center;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background-color: black;
+    color: white;
+    font-size: 1.5rem;
+  }
 }
 
 .numbersContainer {
-  background-color: yellow;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
   position: relative;
-  top: -3rem;
+  top: -2rem;
   width: 80%;
   left: 10%;
   justify-items: center;
