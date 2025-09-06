@@ -11,6 +11,4 @@ Check out the project here: https://aashutosh-github.github.io/calculator/
 - Supports multi-digit numbers
 - Reset functionality
 - Minimal and responsive UI
-
-## TODO
-  -Add decimal numbers functionality.
+- Works for decimal numbers as well
