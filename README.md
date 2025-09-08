@@ -12,3 +12,4 @@ Check out the project here: https://aashutosh-github.github.io/calculator/
 - Reset functionality
 - Minimal and responsive UI
 - Works for decimal numbers as well
+- Custom wojak cursor
